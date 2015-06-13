@@ -15,11 +15,8 @@ class Url(object):
         self.parse_url(url)
 
     def parse_url(self, url):
-        self.set_url(url)
-        self.parse()
-
-    def set_url(self, url):
         self.original_url = url
+        self.parse()
 
     def parse(self):
         self.parsed_url = urlparse(self.original_url)
