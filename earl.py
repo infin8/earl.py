@@ -28,8 +28,9 @@ class Url(object):
         l[4] = urlencode(self.query)
         return urlunparse(l)
 
-    def set(self, name, value):
-        self.query[name] = value
+    def set(self, *args, **kwargs):
+        for name, value in list(args) + kwargs.items():
+            self.query[name] = value
         return self
 
     def __getattr__(self, item):
